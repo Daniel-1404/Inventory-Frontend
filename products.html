@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Inventory Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+    <div class="container">
+        <a class="navbar-brand" href="#">Inventario Productos</a>
+        <button class="btn btn-danger" id="logoutBtn">Cerrar sesión</button>
+    </div>
+</nav>
+<div class="modal-header m-6 p-6">
+    <button class="btn btn-success mb-3 m" data-bs-toggle="modal" data-bs-target="#createProductModal">
+        Nuevo Producto
+    </button>
+</div>
+
+<!-- Modal Crear Producto -->
+<div class="modal fade" id="createProductModal" tabindex="-1" aria-labelledby="createProductModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="createProductModalLabel">Crear Producto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+            <label for="productName" class="form-label">Nombre</label>
+            <input type="text" id="productName" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="productDescription" class="form-label">Descripción</label>
+            <textarea id="productDescription" class="form-control"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="productPrice" class="form-label">Precio</label>
+            <input type="number" id="productPrice" class="form-control" step="0.01">
+        </div>
+        <div class="mb-3">
+            <label for="productStock" class="form-label">Stock</label>
+            <input type="number" id="productStock" class="form-control">
+        </div>
+        <div id="createProductMessage" class="alert alert-danger d-none"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="createProductBtn" class="btn btn-primary">Crear</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+    <div class="row" id="productsContainer">
+        <!-- Las tarjetas de productos se inyectarán aquí -->
+    </div>
+</div>
+
+<!-- Modal Editar Producto -->
+<div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editProductModalLabel">Editar Producto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="editProductId">
+        <div class="mb-3">
+            <label for="editProductName" class="form-label">Nombre</label>
+            <input type="text" id="editProductName" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="editProductDescription" class="form-label">Descripción</label>
+            <textarea id="editProductDescription" class="form-control"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="editProductPrice" class="form-label">Precio</label>
+            <input type="number" id="editProductPrice" class="form-control" step="0.01">
+        </div>
+        <div class="mb-3">
+            <label for="editProductStock" class="form-label">Stock</label>
+            <input type="number" id="editProductStock" class="form-control">
+        </div>
+        <div id="editProductMessage" class="alert alert-danger d-none"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="updateProductBtn" class="btn btn-primary">Actualizar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="assets/js/products.js"></script>
+<script type="module" src="assets/js/productCreate.js"></script>
+<script type="module" src="assets/js/productDelete.js"></script>
+
+</body>
+</html>
