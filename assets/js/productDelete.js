@@ -12,7 +12,7 @@ export async function deleteProduct(id) {
             alert(idValidation.message);
             return;
         }
-        await apiDelete(`/products/${id}`);
+        await apiDelete(`/products/${id}`); //llamar api borrar
         loadProducts();
     } catch (err) {
         console.error(err);

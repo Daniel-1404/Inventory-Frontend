@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:5131/api";
+const API_BASE = "http://localhost:5131/api"; // backend .NET manera local
 const token = localStorage.getItem("jwtToken");
 
 if (!token) {
@@ -23,7 +23,7 @@ async function handleResponse(res) {
 // GET
 export async function apiGet(endpoint) {
     const res = await fetch(`${API_BASE}${endpoint}`, {
-        headers: { "Authorization": `Bearer ${token}` }
+        headers: { "Authorization": `Bearer ${token}` } // pasamos token jwt
     });
     return handleResponse(res);
 }
@@ -34,8 +34,8 @@ export async function apiPost(endpoint, data) {
         method: "POST",
         headers: { 
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
-        },
+            "Authorization": `Bearer ${token}` // pasamos token jwt
+        }, 
         body: JSON.stringify(data)
     });
     return handleResponse(res);
@@ -47,7 +47,7 @@ export async function apiPut(endpoint, data) {
         method: "PUT",
         headers: { 
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
+            "Authorization": `Bearer ${token}` // pasamos token jwt
         },
         body: JSON.stringify(data)
     });
@@ -58,7 +58,7 @@ export async function apiPut(endpoint, data) {
 export async function apiDelete(endpoint) {
     const res = await fetch(`${API_BASE}${endpoint}`, {
         method: "DELETE",
-        headers: { "Authorization": `Bearer ${token}` }
+        headers: { "Authorization": `Bearer ${token}` } // pasamos token jwt
     });
     return handleResponse(res);
 }
